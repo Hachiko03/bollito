@@ -1,12 +1,29 @@
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.setHeader("Content-Type", "text/html");
+  res.end(`
+    <html>
+      <head>
+        <title>Your Web View</title>
+      </head>
+      <body style="margin: 0; padding: 0;">
+        <iframe width="100%" height="100%" src="https://axocoder.vercel.app/" frameborder="0" allowfullscreen></iframe>
+      </body>
+    </html>`);
+});
+
+server.listen(3000, () => {
+  console.log("Server Online because of Axo Coder ✅!!");
+});
+
 // Require the necessary discord.js classes
-const express = require('express')
-const app = express()
+// const express = require('express')
+// const app = express()
 const fs = require("node:fs");
 const path = require("node:path");
 const { Client, Collection, Events, GatewayIntentBits } = require("discord.js");
 const { token } = require("./config.json");
-
-
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -70,15 +87,15 @@ client.on(Events.InteractionCreate, async (interaction) => {
 
 //EXPRESS
 
-app.get('/', (req,res)=>{
-  res.end("My bot is online")
-})
+// app.get('/', (req,res)=>{
+//   res.end("My bot is online")
+// })
 
-function live(){
-  app.listen(3000, function(){
-  console.log("bot is online")
-})}
-live();
+// function live(){
+//   app.listen(3000, function(){
+//   console.log("bot is online")
+// })}
+// live();
 
 //END EXPRESS
 // Log in to Discord with your client's token
